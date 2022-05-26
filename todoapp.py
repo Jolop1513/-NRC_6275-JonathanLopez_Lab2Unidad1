@@ -60,6 +60,45 @@ class ListaTareas:
         fichero.close()
 # ************************************************************
 """
+#------------------------------------------------------
+#                         ENVIAR 
+#------------------------------------------------------
+@app.route('/enviar', methods =["GET", "POST"])
+#contenedor para llamar a enviar.html
+def enviar():
+    if request.method == 'POST':
+        #id, titulo, correo, prioridad
+        
+      ##  fichero = open('dict.pickle', 'rb')
+       ## pickle_load = pickle.load(fichero)
+       
+        ##numID = pickle_load.__len__()
+        tituloT = request.form['titulo']
+        correoT = request.form['correo']
+        prioridadT = request.form['prioridad']
+        #lt = ListaTareas()
+        #lt.agregar(Tarea(numID, tituloT, correoT, prioridadT))
+       # lt.mostrar()
+       # del(lt)
+       ## fichero.close()
+
+        datosF.append({'titulo': tituloT,'correo': correoT,'prioridad': prioridadT})
+        #fichero2 = open('dict.pickle', 'wb')
+        ##pickle.dump(datosF, open('dict.pickle', 'wb'))
+       ## fichero.close()
+        return redirect(url_for('index'))
+#------------------------------------------------------
+
+#------------------------------------------------------
+#Controlador para borrar
+@app.route('/borrar', methods=['POST'])
+#contenedor para llamar a borrar.html
+def borrar():
+    datosF.clear()
+    fichero = open('dict.pickle', 'wb')
+    pickle.dump(datosF, fichero)
+    fichero.close()
+    return redirect(url_for('index'))
 
 @app.route('/')
 #contenedor para llamar a index.html y los datos registrados en la ruta principal
