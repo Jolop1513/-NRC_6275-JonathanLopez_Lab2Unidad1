@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TODO APP</title>
+  <title>TODO APP - López Jonathan</title>
 
   <!--Bootstrap-->
   <!-- CSS only -->
@@ -65,7 +65,7 @@
   <h1 style=" font-family: fantasy;" >GESTIÓN DE TAREAS</h1></center>
   <form action="enviar" method="POST" class="form-group">
     <b><label for="tituloU">NOMBRE DE LA TAREA</label></b>
-    <input type="text" class="form-control" name="titulo" id="titulo_id" placeholder="Ingrese el nombre de la tarea" /><br />
+    <input type="text" class="form-control" name="titulo" id="titulo_id" placeholder="Ingrese el nombre de la tarea"  HTMLFormElement. reset() /><br />
 
     <b><label for="correoU">CORREO ELECTRÓNICO</label></b>
     <input type="email" class="form-control" name="correo" id="correo_id" placeholder="Ingrese un correo electrónico"/><br />
@@ -84,10 +84,7 @@
   <form action="{{url_for('borrar')}}" method="post" class="card-body">
     <button type="submit" class="btn btn-danger mb-2">Eliminar tareas</button>
   </form>
-  
-  <form action="{{ url_for('borrar') }}" method="post">
-    <input type="texto" name="palabra"  class="form-control" id="usr" placeholder="Ingrese el nombre de la tarea que desee borrar">
-    <br><button type="submit" class="btn btn-danger mb-2">Eliminar una tarea</button> <br>
+
     <h1 style=" font-family: fantasy;" >LISTADO DE TAREAS</h1></center>
     <center>
     <img src="https://www.pngkit.com/png/full/828-8283588_preguntas-por-competencias-formatos-para-el-rea-de.png" width="35%" height="200px ">
@@ -98,10 +95,9 @@
   <div id="lista_tareas">
     <div class="card_tarea card">
      <!-- <span id="idS">1</span>-->
-      <span class="card-title"id="tituloS">LISTADO DE TAREAS </span>
-      <span class="card-title" id="correoS"> TAREA</span>
-      <span class="card-title" id="correoS"> CORREO ELECTRÓNICO</span>
-      <span class="card-title" id="prioridadS">PRIORIDAD</span>
+      <span class="card-title" id="tituloS"> TAREA</span>
+      <span class="card-text" id="correoS"> CORREO ELECTRÓNICO</span>
+      <span class="card-text" id="prioridadS">PRIORIDAD DE LA TAREA</span>
     </div>
   </div>
 </main>
