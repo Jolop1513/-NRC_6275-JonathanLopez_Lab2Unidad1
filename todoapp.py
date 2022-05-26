@@ -5,7 +5,7 @@ app = Flask(__name__, template_folder='templates')
 
 datosF = []
 
-"""
+
 def buscarArchivo():
     try:
         archivo = pickle.load(open("dict.pickle","rb"))
@@ -14,8 +14,6 @@ def buscarArchivo():
         
 buscarArchivo()
 
-
-# ************************************************************
 class Tarea:
     # Constructor de clase
     def __init__(self, id, titulo, correo, prioridad):
@@ -58,38 +56,19 @@ class ListaTareas:
         fichero = open('dict.pickle', 'wb')
         pickle.dump(self.datosF, fichero)
         fichero.close()
-# ************************************************************
-"""
-#------------------------------------------------------
-#                         ENVIAR 
-#------------------------------------------------------
+
+#ENVIAR 
+
 @app.route('/enviar', methods =["GET", "POST"])
 #contenedor para llamar a enviar.html
 def enviar():
     if request.method == 'POST':
-        #id, titulo, correo, prioridad
-        
-      ##  fichero = open('dict.pickle', 'rb')
-       ## pickle_load = pickle.load(fichero)
-       
-        ##numID = pickle_load.__len__()
         tituloT = request.form['titulo']
         correoT = request.form['correo']
         prioridadT = request.form['prioridad']
-        #lt = ListaTareas()
-        #lt.agregar(Tarea(numID, tituloT, correoT, prioridadT))
-       # lt.mostrar()
-       # del(lt)
-       ## fichero.close()
-
         datosF.append({'titulo': tituloT,'correo': correoT,'prioridad': prioridadT})
-        #fichero2 = open('dict.pickle', 'wb')
-        ##pickle.dump(datosF, open('dict.pickle', 'wb'))
-       ## fichero.close()
         return redirect(url_for('index'))
-#------------------------------------------------------
-
-#------------------------------------------------------
+    
 #Controlador para borrar
 @app.route('/borrar', methods=['POST'])
 #contenedor para llamar a borrar.html
@@ -103,8 +82,6 @@ def borrar():
 @app.route('/')
 #contenedor para llamar a index.html y los datos registrados en la ruta principal
 def index():
-    #pickle_in = open("dict.pickle","rb")
-   # dict = pickle.load(pickle_in)
     return render_template('/index.html', datosF=datosF)
 
 #ejecutar
