@@ -85,6 +85,10 @@
     <button type="submit" class="btn btn-danger mb-2">Eliminar tareas</button>
   </form>
 
+  <form action="{{ url_for('borrar') }}" method="post">
+    <input type="texto" name="palabra"  class="form-control" id="usr" placeholder="Ingrese el nombre de la tarea que desee borrar">
+    <br><button type="submit" class="btn btn-danger mb-2">Eliminar una tarea</button> <br>
+
     <h1 style=" font-family: fantasy;" >LISTADO DE TAREAS</h1></center>
     <center>
     <img src="https://www.pngkit.com/png/full/828-8283588_preguntas-por-competencias-formatos-para-el-rea-de.png" width="35%" height="200px ">
