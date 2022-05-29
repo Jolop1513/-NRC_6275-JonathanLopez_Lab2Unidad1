@@ -2,6 +2,8 @@
 from flask import Flask, redirect, request, render_template, url_for
 import pickle
 app = Flask(__name__, template_folder='templates')
+#importar la libreria Unittest
+import unittest
 
 datosF = []
 
